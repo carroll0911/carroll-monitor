@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: analyzer
+
+
+server:
+    port: 8081
+    tomcat:
+      max-threads: 128 #tomcat工作线程最大值，最小值
+      min-spare-threads: 20
+    context-path: /
+
+endpoints:
+    shutdown:
+        enabled: true #启用shutdown

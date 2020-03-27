@@ -1,0 +1,102 @@
+monitor:
+  kafka:
+    brokers: 172.20.25.125:29092
+    group: businessMonitor
+    bachSize: 65536
+    lingerMs: 1
+    bufferMemory: 524288
+    autoCommitIntervalMs: 100
+    sessionTimeoutMs: 20000
+    heartbeatIntervalMs: 1500
+    autoOffsetReset: latest
+    maxPollRecords: 10
+    concurrencey: 12
+    pollTimeout: 4000
+  sms:
+    syscode: C3XM
+    password: admin123
+    code: A201708101
+    uri: http://192.168.131.81:8081/usp-server-sysinterface/service/InsideTemplateWebservice?WSDL
+spring:
+  data:
+    mongodb:
+      uri: mongodb://businessMonitor:businessMonitor2017@172.20.25.124:27017,172.20.25.125:27017,172.20.25.126:27017/businessMonitor?replicaSet=rs_c3_manager&readPreference=primaryPreferred&waitQueueMultiple=100&connectionPerHost=1000&maxConnectionTimeout=1000
+  mail:
+    host: smtp.carroll.com
+    username: c3.b2b
+    password: 5JKjOFQt
+    from: c3.b2b@carroll.com
+    default-encoding: UTF-8
+    properties: null
+    protocol: smtp
+    port: 25
+carroll:
+  log4j:
+    enable: true
+    contextName: logStash
+    serverPort: 172.20.68.88:4560
+    charset: UTF-8
+    level: INFO
+    logHome: /var/log/c3/
+    maxHistory: 7
+    loggers:
+      - com.carroll=DEBUG
+      - com.sun.mail.smtp=FINE
+      - com.carroll.spring.cache=INFO
+cache:
+  redis:
+    enable: true
+    clusterEnable: true
+    clusterNodes: 172.20.25.124:7000,172.20.25.124:7001,172.20.25.125:7002,172.20.25.125:7003,172.20.25.126:7004,172.20.25.126:7005
+    database: 0
+    password: 123456
+    timeout: 10000
+    maxWaitMillis: 10000
+    maxTotal: 100
+    maxIdle: 10
+    defaultExpiration: 3600
+    cacheName: business-monitor
+restTemplateConnTimeout: 15000
+
+dateNum: 5
+days: 20
+# traceUrl: http://172.20.68.201:8083/trace
+feign:
+  httpclient:
+    enabled: true
+swagger:
+  title: 监控平台标准API
+  description: 监控平台标准API
+  groups:
+    v1: com.carroll.monitor.analyzer.controller
+  headers:
+    token: 登陆token
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
+logSize: 20
+host: -xingneng
+syncTimeValue: 60000
+
+xxl:
+  job:
+    executor:
+      appname: business-monitor
+      port: 9999
+      ip:
+    admin:
+      addresses: http://172.20.25.133:9099/xxl-job-admin
+
+theadpool:
+  corePoolSize: 150
+  maxPoolSize: 250
+  blockQueueSize: 2000
+
+passport:
+  excludes:
+    - /v2/operator/login
+  authToken: d6NRqgOkiT6pwF7x
