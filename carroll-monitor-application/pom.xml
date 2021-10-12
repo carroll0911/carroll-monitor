@@ -19,7 +19,7 @@
         <lombok>1.16.16</lombok>
         <mockito-all>1.10.19</mockito-all>
         <powermock>1.6.6</powermock>
-        <xxl-job>2.0.1</xxl-job>
+        <xxl-job>2.3.0</xxl-job>
         <okhttp.version>3.9.1</okhttp.version>
     </properties>
     <dependencies>
