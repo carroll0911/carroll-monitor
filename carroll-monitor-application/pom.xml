@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>carroll-monitor-application</artifactId>
     <properties>
-        <spring.boot.version>1.5.2.RELEASE</spring.boot.version>
+        <spring.boot.version>2.5.12</spring.boot.version>
         <spring.boot.starter.data.mongo>1.4.3.RELEASE</spring.boot.starter.data.mongo>
         <spring-boot-starter-mail>1.5.1.RELEASE</spring-boot-starter-mail>
         <com.alibaba.fastjson>1.2.39</com.alibaba.fastjson>
